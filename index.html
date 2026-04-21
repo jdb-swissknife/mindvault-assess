@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assessment | MindVault Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-card: #141416;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a3a3a3;
+            --accent: #c97756;
+            --accent-light: #e08966;
+            --border: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(201, 119, 86, 0.1);
+            color: var(--accent-light);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            padding: 16px 32px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+        }
+
+        .price-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Value proposition */
+        .value-section {
+            padding: 60px 0;
+            background: var(--bg-card);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            padding: 32px;
+            background: var(--bg-dark);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .value-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+        }
+
+        /* What's included */
+        .included-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .deliverables {
+            list-style: none;
+        }
+
+        .deliverables li {
+            padding: 24px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .deliverables .num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .deliverables h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .deliverables p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Process */
+        .process-section {
+            padding: 80px 0;
+            background: var(--bg-card);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .step h3 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+        }
+
+        .faq-item h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Final CTA */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--bg-card), var(--bg-dark));
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deliverables li {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="https://mindvaultstudio.net" class="logo">Mind<span>Vault</span></a>
+                <span style="color: var(--text-secondary);">AI Assessment</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="eyebrow">For Business Owners Who Want Their Mornings Back</span>
+            <h1>Get a Professional <span>AI Assessment</span> of Your Business</h1>
+            <p class="hero-subtitle">Discover exactly where AI can save you 8+ hours per week, cut costs, and capture more revenue—with a personalized roadmap prioritized by impact and effort.</p>
+            
+            <div class="price-tag">
+                <div class="price-label">Introductory Assessment</div>
+                <div class="price-value">$997</div>
+            </div>
+            
+            <br>
+            <a href="#contact" class="cta-btn">Book Your Assessment</a>
+        </div>
+    </section>
+
+    <section class="value-section">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>Find Your Quick Wins</h3>
+                    <p>We identify low-hanging fruit that deliver immediate ROI—tools you can implement in days, not months. Meeting automation, email cleanup, lead response systems.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Full Financial Analysis</h3>
+                    <p>See dollar-for-dollar how much time and money you're leaving on the table. Most owners reclaim 8-12 hours per week worth $15-30K annually.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Prioritized Roadmap</h3>
+                    <p>Not a generic list—an Impact-Effort Matrix showing exactly what to tackle first, second, and third based on your specific workflows and pain points.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="included-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What's Included</h2>
+                <p>A professional deliverable you can action immediately—or hire us to implement.</p>
+            </div>
+            
+            <ul class="deliverables">
+                <li>
+                    <span class="num">1</span>
+                    <div>
+                        <h4>Executive Summary</h4>
+                        <p>The bottom line: current state, quick wins, and projected ROI. Readable in 2 minutes by busy owners.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">2</span>
+                    <div>
+                        <h4>AI Readiness Score</h4>
+                        <p>Benchmark your business across 5 categories: Systems, Data, Processes, Team, and Strategy.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">3</span>
+                    <div>
+                        <h4>Impact-Effort Matrix</h4>
+                        <p>Every opportunity mapped by effort required vs. impact delivered. Start with the top-right quadrant.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">4</span>
+                    <div>
+                        <h4>Quick Win Recommendations</h4>
+                        <p>3-5 specific tools with setup guides, pricing, and expected ROI. These alone usually pay for the assessment.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">5</span>
+                    <div>
+                        <h4>Integration Roadmap</h4>
+                        <p>Mid- and long-term projects sequenced for maximum momentum. Includes complexity ratings and timeline estimates.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">6</span>
+                    <div>
+                        <h4>ROI Calculator</h4>
+                        <p>Custom projections showing hours saved and revenue gained—updated with your actual numbers from the discovery call.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">7</span>
+                    <div>
+                        <h4>Implementation Options</h4>
+                        <p>Clear pricing and scope for DIY, guided setup, or full-service implementation. No pressure, full transparency.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">8</span>
+                    <div>
+                        <h4>30-Day Follow-Up</h4>
+                        <p>30-minute call to review your progress, answer questions, and adjust priorities based on what you've learned.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Simple, fast, and focused on action—not theory.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">📞</div>
+                    <h3>Discovery Call</h3>
+                    <p>15-20 minute structured interview about your workflows, pain points, and goals. We'll record the call with your permission to ensure accuracy.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📊</div>
+                    <h3>Analysis & Research</h3>
+                    <p>We map your operations against 2025's best AI tools and build your custom assessment report. Takes 3-5 business days.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📋</div>
+                    <h3>Presentation</h3>
+                    <p>30-minute walkthrough of your assessment via video call. We'll send the written report immediately after.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked</h2>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>Why does this cost $997 instead of being free?</h4>
+                    <p>Free assessments are sales pitches in disguise. We charge because this is a genuine financial analysis that takes 3-5 hours of research time. The fee ensures you're serious, and it ensures we deliver real value—not a lead magnet. Most clients find the quick wins alone save them $2,000+ in the first month.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I don't need implementation help?</h4>
+                    <p>Perfect. Many business owners love just having the roadmap and handling implementation themselves. That 30-day follow-up call is still included to answer questions and help you adjust course.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What industries do you specialize in?</h4>
+                    <p>We focus on service businesses with 5-30 employees: roofing, HVAC, solar, home services, professional services, and real estate. These businesses have clear workflows, measurable lead decay, and high owner involvement—perfect candidates for AI intervention.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my data secure?</h4>
+                    <p>Absolutely. We don't store sensitive business data. Discovery calls are optional to record; reports stay in your possession. We're looking at your workflows and processes, not your financial accounts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Hidden Hours?</h2>
+            <p>Book your 15-minute discovery call. If we don't think we can deliver at least 3x ROI, we'll tell you upfront—and refund your fee.</p>
+            <a href="#" class="cta-btn" id="bookBtn">Book Your Assessment</a>
+            <p style="margin-top: 16px; font-size: 0.875rem; color: var(--text-secondary);">Or email <a href="mailto:apply@mindvaultstudio.net" style="color: var(--accent);">apply@mindvaultstudio.net</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MindVault Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bookBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Booking form coming soon! Email apply@mindvaultstudio.net for now.');
+        });
+    </script>
+
+</body>
+</html>
