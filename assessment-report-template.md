@@ -185,7 +185,7 @@ Each quick win card includes:
 
 **Next Step:**
 Book your strategy call to get these Quick Wins mapped to your specific workflow.
-→ [Schedule Your Call](https://calendly.com/john-mindvaultstudio/30min)
+→ [Schedule Your Call](https://calendly.com/john-bird-mindvaultstudio/30min)
 
 ---
 
@@ -264,7 +264,7 @@ Your report shows where the time leaks and revenue gaps are. The next step is a 
 
 **Book Your Strategy Call**
 
-→ **[Schedule 30 Minutes with John](https://calendly.com/john-mindvaultstudio/30min)** ←
+→ **[Schedule 30 Minutes with John](https://calendly.com/john-bird-mindvaultstudio/30min)** ←
 
 *Available: Tuesday–Thursday, 9am–4pm ET*
 
