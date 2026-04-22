@@ -1,52 +1,41 @@
 #!/usr/bin/env python3
 """
 MindVault AI Assessment Pipeline - Webhook Server
-Receives Retell.ai webhooks and triggers report generation
+Receives Retell.ai webhooks and saves transcripts for manual report generation
 """
 
 import os
 import json
+import re
 import asyncio
+import logging
 from datetime import datetime
-from typing import Dict, Any, Optional
 from pathlib import Path
+from typing import Dict, Any, Optional
 
 from fastapi import FastAPI, HTTPException, Header, Request, BackgroundTasks
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from dotenv import load_dotenv
-import logging
-
-from report_generator import ReportGenerator
-
-# Load environment variables
-load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize FastAPI app
+# Initialize FastAPI
 app = FastAPI(
     title="MindVault AI Assessment Pipeline",
     description="Webhook receiver for Retell.ai discovery calls",
     version="1.0.0"
 )
 
-# Webhook secret for verification
-WEBHOOK_SECRET = os.getenv("RETELL_WEBHOOK_SECRET", "")
+# Configuration
 REPORTS_DIR = Path(os.getenv("REPORTS_DIR", "/root/projects/mindvault-assess/reports"))
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# Retell webhook event models
-class RetellTranscriptTurn(BaseModel):
-    role: str
-    content: str
-
-
+# Models
 class RetellWebhookPayload(BaseModel):
-    event: str  # call_started, call_ended, call_analyzed
+    event: str
     call_id: str
     agent_id: Optional[str] = None
     call_status: Optional[str] = None
@@ -59,162 +48,132 @@ class RetellWebhookPayload(BaseModel):
     customer_number: Optional[str] = None
     from_number: Optional[str] = None
     to_number: Optional[str] = None
-    call_type: Optional[str] = None  # inbound or outbound
+    call_type: Optional[str] = None
     metadata: Optional[Dict[str, Any]] = None
     analysis: Optional[Dict[str, Any]] = None
     extracted_variables: Optional[Dict[str, Any]] = None
 
 
-# Initialize report generator
-report_generator = None
-
-
-@app.on_event("startup")
-async def startup_event():
-    global report_generator
-    report_generator = ReportGenerator()
-    logger.info("Report generator initialized")
+async def save_transcript(call_id: str, business_name: str, customer_name: str, 
+                          industry: str, duration_ms: Optional[int],
+                          transcript_object: list, transcript: list):
+    """Save transcript to file for manual report generation"""
+    
+    # Build transcript text
+    transcript_text = ""
+    if transcript_object:
+        for turn in transcript_object:
+            role = turn.get("role", "unknown")
+            content = turn.get("content", "")
+            transcript_text += f"{role.upper()}: {content}\n\n"
+    elif transcript:
+        transcript_text = "\n".join(transcript)
+    
+    if not transcript_text:
+        raise ValueError("No transcript content found")
+    
+    # Generate filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    safe_business = re.sub(r'[^\w\s-]', '', business_name).replace(' ', '_')[:30]
+    filename = f"{safe_business}_{timestamp}_{call_id[:8]}.txt"
+    filepath = REPORTS_DIR / filename
+    
+    # Write file with metadata
+    with open(filepath, 'w') as f:
+        f.write(f"CALL METADATA\n")
+        f.write(f"="*50 + "\n")
+        f.write(f"Business: {business_name}\n")
+        f.write(f"Customer: {customer_name}\n")
+        f.write(f"Industry: {industry}\n")
+        f.write(f"Call ID: {call_id}\n")
+        f.write(f"Date: {datetime.now().isoformat()}\n")
+        if duration_ms:
+            f.write(f"Duration: {duration_ms // 1000}s\n")
+        f.write(f"File: {filepath}\n")
+        f.write(f"="*50 + "\n\n")
+        f.write(f"TRANSCRIPT\n")
+        f.write(f"="*50 + "\n\n")
+        f.write(transcript_text)
+    
+    return filepath
 
 
 async def process_call_analyzed(payload: RetellWebhookPayload):
-    """Process call_analyzed event and generate report"""
+    """Process call_analyzed event and save transcript"""
     try:
-        logger.info(f"Processing call {payload.call_id} - {payload.event}")
+        logger.info(f"Processing call {payload.call_id}")
         
-        # Skip if not the analyzed event (we only care about call_analyzed)
         if payload.event != "call_analyzed":
             logger.info(f"Skipping {payload.event} event")
             return
         
-        # Get customer info from metadata or extract from transcript
-        customer_name = "Unknown"
-        business_name = "Unknown"
-        industry = "general"
+        # Get metadata
+        metadata = payload.metadata or {}
+        customer_name = metadata.get("customer_name", "Unknown")
+        business_name = metadata.get("business_name", "Unknown")
+        industry = metadata.get("industry", "general")
         
-        if payload.metadata:
-            customer_name = payload.metadata.get("customer_name", "Unknown")
-            business_name = payload.metadata.get("business_name", "Unknown")
-            industry = payload.metadata.get("industry", "general")
-        
-        # Build transcript text from turns
-        transcript_text = ""
-        if payload.transcript_object:
-            for turn in payload.transcript_object:
-                role = turn.get("role", "unknown")
-                content = turn.get("content", "")
-                transcript_text += f"{role.upper()}: {content}\n\n"
-        elif payload.transcript:
-            transcript_text = "\n".join(payload.transcript)
-        
-        if not transcript_text:
-            logger.warning(f"No transcript found for call {payload.call_id}")
-            return
-        
-        # Detect industry from transcript if not provided
-        detected_industry = report_generator.detect_industry(transcript_text, industry)
-        
-        # Generate report
-        logger.info(f"Generating report for {business_name} ({detected_industry})")
-        
-        report_data = await report_generator.generate_report(
+        # Save transcript
+        filepath = await save_transcript(
             call_id=payload.call_id,
-            customer_name=customer_name,
             business_name=business_name,
-            industry=detected_industry,
-            transcript=transcript_text,
-            extracted_vars=payload.extracted_variables or {},
-            analysis=payload.analysis or {}
+            customer_name=customer_name,
+            industry=industry,
+            duration_ms=payload.duration_ms,
+            transcript_object=payload.transcript_object or [],
+            transcript=payload.transcript or []
         )
         
-        logger.info(f"Report generated: {report_data['report_path']}")
+        logger.info(f"✅ Transcript saved: {filepath}")
+        logger.info(f"To generate report, ask Hermes: \"Generate assessment report from {filepath}\"")
         
-        # Send notification email if configured
-        if os.getenv("SEND_EMAIL_ON_COMPLETE", "false").lower() == "true":
-            await send_report_email(report_data)
-            
     except Exception as e:
-        logger.error(f"Error processing call {payload.call_id}: {str(e)}")
-        raise
-
-
-async def send_report_email(report_data: Dict):
-    """Send email with report link"""
-    # TODO: Implement email sending (Himalaya or SMTP)
-    logger.info(f"Would send email for report: {report_data['report_id']}")
-
-
-async def verify_webhook_signature(request: Request, x_retell_signature: Optional[str] = Header(None)):
-    """Verify Retell webhook signature if secret is configured"""
-    if not WEBHOOK_SECRET:
-        return True
-    
-    if not x_retell_signature:
-        raise HTTPException(status_code=401, detail="Missing webhook signature")
-    
-    # TODO: Implement signature verification per Retell docs
-    # For now, just check presence if secret is configured
-    return True
+        logger.error(f"❌ Error processing call {payload.call_id}: {e}")
 
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint"""
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
 
 @app.post("/webhook/retell")
-async def retell_webhook(
-    request: Request,
-    background_tasks: BackgroundTasks,
-):
-    """
-    Receive Retell.ai webhook events
-    Handles: call_started, call_ended, call_analyzed
-    Only processes call_analyzed to generate reports
-    """
+async def retell_webhook(request: Request, background_tasks: BackgroundTasks):
+    """Receive Retell.ai webhook events"""
     try:
-        # Parse JSON payload
         payload_json = await request.json()
         payload = RetellWebhookPayload(**payload_json)
         
         logger.info(f"Received {payload.event} webhook for call {payload.call_id}")
         
-        # Process in background to respond quickly
         if payload.event == "call_analyzed":
             background_tasks.add_task(process_call_analyzed, payload)
         
-        return JSONResponse(
-            status_code=200,
-            content={
-                "status": "received",
-                "call_id": payload.call_id,
-                "event": payload.event
-            }
-        )
+        return JSONResponse(status_code=200, content={"status": "received"})
         
     except Exception as e:
-        logger.error(f"Webhook error: {str(e)}")
+        logger.error(f"Webhook error: {e}")
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.get("/reports/{report_id}")
-async def get_report(report_id: str):
-    """Retrieve a generated report"""
-    report_path = REPORTS_DIR / f"{report_id}.html"
-    
-    if not report_path.exists():
-        raise HTTPException(status_code=404, detail="Report not found")
-    
-    return JSONResponse(
-        status_code=200,
-        content={
-            "report_id": report_id,
-            "html_url": f"/reports/{report_id}.html",
-            "pdf_url": f"/reports/{report_id}.pdf"
-        }
-    )
+@app.get("/reports")
+async def list_transcripts():
+    """List all saved transcripts"""
+    files = sorted(REPORTS_DIR.glob("*.txt"), key=lambda x: x.stat().st_mtime, reverse=True)
+    return {
+        "transcripts": [
+            {
+                "filename": f.name,
+                "path": str(f),
+                "size": f.stat().st_size,
+                "created": datetime.fromtimestamp(f.stat().st_mtime).isoformat()
+            }
+            for f in files[:20]
+        ]
+    }
 
 
 if __name__ == "__main__":
     import uvicorn
+    logger.info(f"🚀 Starting webhook server")
+    logger.info(f"📁 Transcripts will be saved to: {REPORTS_DIR}")
     uvicorn.run(app, host="0.0.0.0", port=8000)
