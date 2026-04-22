@@ -142,7 +142,7 @@ This is NOT a sales call. It's a diagnostic. The report does the selling.
 
 "Perfect, I have everything I need. Just to confirm:
 - You'll receive your AI Assessment report via email within 5 business days
-- We'll schedule a 30-minute video call to walk through the findings
+- We'll schedule a 15-20 minute video call to walk through the findings
 - The report will include your personalized Impact-Effort Matrix, ROI calculations, and a clear roadmap
 
 Do you have any questions before we wrap up?"
