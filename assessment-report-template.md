@@ -183,13 +183,9 @@ Each quick win card includes:
 
 ---
 
-**Implementation Options:**
-
-| Approach | Investment | Timeline | Best For |
-|----------|-----------|----------|----------|
-| DIY | $0 + tool costs | 1-2 weeks | Tech-savvy owner |
-| Guided Setup | $X,XXX | 3-5 days | Want it done right |
-| Full Service | $X,XXX-$X,XXX | 1-2 weeks | Zero time to spare |
+**Next Step:**
+Book your strategy call to get these Quick Wins mapped to your specific workflow.
+→ [Schedule Your Call](https://calendly.com/john-mindvaultstudio/30min)
 
 ---
 
@@ -246,75 +242,37 @@ Sub-2-minute response to all inquiries, 24/7
 
 ---
 
-## SLIDE 8: IMPLEMENTATION OPTIONS & NEXT STEPS
+## SLIDE 8: YOUR NEXT STEP — STRATEGY CALL WITH JOHN
 
-**Three Ways to Move Forward**
+**Let's turn this assessment into action.**
 
----
-
-**OPTION A: DIY Implementation**
-*You handle setup, we provide the roadmap*
-
-**What's included:**
-- ✅ Detailed setup guides for all Quick Wins
-- ✅ 30-day check-in call
-- ✅ Email support for questions
-
-**Investment:** Assessment fee only ($997)
-**Best for:** Owners with technical aptitude and available time
+Your report shows where the time leaks and revenue gaps are. The next step is a 30-minute call to map out your specific implementation plan.
 
 ---
 
-**OPTION B: Guided Setup**
-*We handle Quick Wins together, you learn the ropes*
+**What We'll Cover:**
 
-**What's included:**
-- ✅ All Quick Win tools configured
-- ✅ Team training (1 hour)
-- ✅ Documentation of new workflows
-- ✅ 30, 60, 90-day check-ins
+- Deep-dive on your top 2-3 pain points from the assessment
+- Prioritize which Quick Wins to tackle first (based on your capacity)
+- Preview the walkthrough for any tools we recommended
+- Answer your questions about setup, timeline, and ROI
+- Determine if guided implementation makes sense for you
 
-**Investment:** $X,XXX
-**Timeline:** 3-5 business days
-**Best for:** Want it done right, with knowledge transfer
+**No pressure, no hard sell** — just clarity on your next steps.
 
 ---
 
-**OPTION C: Full Partnership**
-*We handle everything from Quick Wins through full Integration Roadmap*
+**Book Your Strategy Call**
 
-**What's included:**
-- ✅ Quick Wins implementation
-- ✅ Mid-term project execution (up to 3 projects)
-- ✅ Priority support
-- ✅ Quarterly strategy reviews
-- ✅ One year of maintenance
+→ **[Schedule 30 Minutes with John](https://calendly.com/john-mindvaultstudio/30min)** ←
 
-**Investment:** $X,XXX-$XX,XXX
-**Timeline:** 2-3 months full implementation
-**Best for:** Maximum impact, minimum time investment
+*Available: Tuesday–Thursday, 9am–4pm ET*
 
 ---
 
-**Guarantee Statement**
+**Questions Before You Book?**
 
-"If you implement the Quick Wins within 30 days and don't recover at least 5 hours/week, we'll refund your Assessment fee and the first month of any subscription tools we recommended."
-
----
-
-**Next Steps**
-
-1. **Schedule your Strategy Call** — 30-minute walkthrough with [consultant name]
-   [Calendar link]
-
-2. **Select your implementation tier** prior to the call
-
-3. **Begin Quick Win setup** — we'll send step-by-step guides immediately upon confirmation
-
----
-
-**Questions?**
-contact@mindvaultstudio.net
+john@mindvaultstudio.net
 
 ---
 
