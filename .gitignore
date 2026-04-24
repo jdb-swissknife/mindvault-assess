@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+.env.*
+
+# Reports (generated, not site content)
+reports/
+
+# Pipeline backend code
+pipeline/
+
+# Shell scripts (not site content)
+generate_report.sh
+deploy_analytics.sh
+check-logs.sh
+check-logs2.sh
+
+# Markdown docs (not site content)
+agent-router.md
+discovery-call-script.md
+script-home-services.md
+script-insurance-financial.md
+script-real-estate.md
+retell-agent-prompt.md
+AB_TEST_README.md
+assessment-report-template.md
+
+# Outreach data
+outreach/
+
+# Analytics worker (Cloudflare, not GH Pages)
+analytics_worker.js
+
+# Old booking page (now embedded in index.html)
+book.html
+
+# App directory
+app/
+
+# Logs
+*.log
+/tmp/
