@@ -1,0 +1,22 @@
+CALL METADATA
+==================================================
+Business: Johnson Roofing
+Customer: Mike Johnson
+Industry: roofing
+Call ID: call_test_johnson_001
+Date: 2026-04-24T01:15:27.897945
+Duration: 1188s
+Contact Email: m.johnson@johnsonroofing.com
+Contact Phone: 651-887-6543
+File: /root/projects/mindvault-assess/reports/Johnson_Roofing_20260424_011527_call_tes.txt
+==================================================
+
+TRANSCRIPT
+==================================================
+
+AGENT: Hi, this is Annie from MindVault Studio...
+
+USER: Yes, this is Mike Johnson from Johnson Roofing.
+
+AGENT: Great Mike, let's talk about your operations...
+

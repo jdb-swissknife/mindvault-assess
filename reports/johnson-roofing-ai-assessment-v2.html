@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assessment Report — Johnson Roofing | MindVault Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --charcoal: #0d0d0d;
+      --charcoal-light: #1a1a1a;
+      --white: #ffffff;
+      --off-white: #fafafa;
+      --gray-50: #f5f5f5;
+      --gray-100: #e5e5e5;
+      --gray-200: #d4d4d4;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gold: #c9a227;
+      --gold-light: #d4b43a;
+      --green: #22c55e;
+      --green-dark: #16a34a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--charcoal);
+      padding: 24px 0;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--gold); }
+    .header-tag {
+      font-size: 13px;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--charcoal);
+      padding: 60px 0 50px;
+      text-align: center;
+    }
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      color: var(--gray-400);
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+    }
+    .hero-meta-item {
+      text-align: center;
+    }
+    .hero-meta-label {
+      font-size: 11px;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .hero-meta-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* Section Labels */
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    /* Main Content */
+    main { padding: 60px 0; }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: var(--charcoal);
+    }
+
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: var(--gray-600);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    /* Pain/Outcome Cards */
+    .summary-grid {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .summary-card {
+      padding: 32px;
+      border-radius: 12px;
+    }
+    .summary-card.pain {
+      background: var(--gray-50);
+      border-left: 4px solid var(--charcoal);
+    }
+    .summary-card.outcome {
+      background: #f0fdf4;
+      border-left: 4px solid var(--green);
+    }
+    .summary-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      color: var(--gray-500);
+    }
+    .summary-card.pain .summary-card-label { color: var(--charcoal); }
+    .summary-card.outcome .summary-card-label { color: var(--green-dark); }
+    .summary-card h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .summary-card p {
+      margin-bottom: 0;
+      color: var(--gray-600);
+    }
+
+    /* Systems tags */
+    .systems {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-100);
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+    .systems strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    /* Table */
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .metrics-table th {
+      text-align: left;
+      padding: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+      border-bottom: 2px solid var(--charcoal);
+    }
+    .metrics-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-600);
+    }
+    .metrics-table td strong {
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+    .metrics-table .future {
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+
+    /* Matrix */
+    .matrix-intro {
+      margin-bottom: 24px;
+      color: var(--gray-600);
+    }
+    .matrix-intro strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .matrix-quadrant {
+      padding: 24px;
+      border-radius: 8px;
+    }
+    .matrix-quadrant.quick-wins {
+      background: #f0fdf4;
+    }
+    .matrix-quadrant.major {
+      background: #fef3c7;
+    }
+    .matrix-quadrant.fill {
+      background: var(--gray-50);
+    }
+    .matrix-quadrant.ignore {
+      background: var(--gray-50);
+      opacity: 0.7;
+    }
+    .matrix-quadrant h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+      color: var(--charcoal);
+    }
+    .matrix-quadrant ul {
+      list-style: none;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+    .matrix-quadrant li {
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+    }
+    .matrix-quadrant li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--gray-400);
+    }
+
+    /* Solution Cards */
+    .solution-card {
+      background: var(--off-white);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-number {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 120px;
+      font-weight: 800;
+      color: var(--gray-100);
+      line-height: 1;
+      z-index: 0;
+    }
+    .solution-content {
+      position: relative;
+      z-index: 1;
+    }
+    .solution-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .solution-title h4 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .solution-subtitle {
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+    .solution-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-green { background: #dcfce7; color: #166534; }
+    .badge-yellow { background: #fef3c7; color: #92400e; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+
+    .solution-section {
+      margin-bottom: 20px;
+    }
+    .solution-section-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .solution-section p {
+      margin-bottom: 0;
+      color: var(--gray-600);
+    }
+
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin: 16px 0;
+      font-style: italic;
+      color: var(--gray-500);
+    }
+
+    .solution-roi {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-200);
+    }
+    .roi-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+    .roi-label {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+    .roi-ongoing {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    .roi-ongoing strong {
+      color: var(--charcoal);
+    }
+
+    /* Timeline */
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .timeline-block {
+      background: var(--off-white);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .timeline-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      color: var(--charcoal);
+    }
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .timeline-bullet {
+      width: 24px;
+      height: 24px;
+      background: var(--charcoal);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .timeline-text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    .timeline-tool {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-200);
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+    .timeline-tool strong {
+      color: var(--charcoal);
+    }
+
+    /* Phases */
+    .phases {
+      margin-top: 32px;
+    }
+    .phase {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .phase:last-child { margin-bottom: 0; }
+    .phase-number {
+      width: 48px;
+      height: 48px;
+      background: var(--charcoal);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .phase-content h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .phase-content p {
+      margin-bottom: 0;
+      color: var(--gray-600);
+    }
+
+    /* Financial Impact */
+    .financial-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .financial-card {
+      background: var(--charcoal);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .financial-value {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .financial-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .impact-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+    .impact-table th {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .impact-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-600);
+    }
+    .impact-table tr:nth-child(even) {
+      background: var(--gray-50);
+    }
+    .impact-table .total-row {
+      background: var(--charcoal);
+    }
+    .impact-table .total-row td {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--charcoal);
+      border-radius: 16px;
+      padding: 60px;
+      margin-top: 60px;
+    }
+    .cta-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+    .cta-section h2 {
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .cta-card {
+      background: var(--charcoal-light);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+    }
+    .cta-card-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .cta-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .cta-card p {
+      font-size: 14px;
+      color: var(--gray-400);
+      margin-bottom: 0;
+    }
+    .cta-card.primary {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .cta-card.primary .cta-card-number,
+    .cta-card.primary h4 {
+      color: var(--charcoal);
+    }
+    .cta-card.primary p {
+      color: var(--charcoal);
+      opacity: 0.8;
+    }
+
+    .cta-footer {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid #333;
+    }
+    .cta-email {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .cta-email:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--gray-500);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .hero h1 { font-size: 36px; }
+      .hero-meta { flex-direction: column; gap: 20px; }
+      .matrix-grid,
+      .timeline-grid,
+      .financial-cards,
+      .cta-grid { grid-template-columns: 1fr; }
+      .solution-header { flex-direction: column; gap: 16px; }
+      .solution-number { font-size: 80px; top: 10px; right: 16px; }
+      .cta-section { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="https://mindvaultstudio.net" class="logo">
+      Mind<span>Vault</span>
+    </a>
+    <span class="header-tag">AI Assessment Report</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">AI Assessment Report</div>
+    <h1>Johnson Roofing</h1>
+    <p class="hero-subtitle">Prepared by MindVault Studio — April 23, 2026</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Assessment Date</div>
+        <div class="hero-meta-value">April 23, 2026</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">AI Interview</div>
+        <div class="hero-meta-value">19 min 48 sec</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-label">Assessment ID</div>
+        <div class="hero-meta-value">MVA-2026-0423-JR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section>
+    <div class="section-label">Executive Summary</div>
+    
+    <div class="summary-grid">
+      <div class="summary-card pain">
+        <div class="summary-card-label">The Pain</div>
+        <h3>You are the coordination hub for a 22-27 person company.</h3>
+        <p>Every question, every update, every decision flows through you. Cross-department handoffs happen by phone. 50% of your time is spent on work that does not require your judgment.</p>
+      </div>
+      
+      <div class="summary-card outcome">
+        <div class="summary-card-label">The Outcome</div>
+        <h3>Connect your existing tools so your team can operate without you as the bottleneck.</h3>
+        <p>Targeted automation can return 12-16 hours per week and free your time for the growth work you have been putting off.</p>
+      </div>
+    </div>
+    
+    <div class="systems">
+      <strong>Systems in use:</strong> Go High Level (CRM) · SalesRabbit (sales) · Google Workspace (estimates) · QuickBooks (accounting) · Slack (limited)
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">The Opportunity</div>
+    <h2>Where You Are vs. Where You Can Be</h2>
+    
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Now</th>
+          <th>90 Days In</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Weekly admin hours</strong> (your time)</td>
+          <td>~20 hours</td>
+          <td class="future">~5-8 hours</td>
+        </tr>
+        <tr>
+          <td><strong>Lead follow-up response time</strong></td>
+          <td>Same day (manual)</td>
+          <td class="future">Immediate</td>
+        </tr>
+        <tr>
+          <td><strong>Field crew calls to office for job info</strong></td>
+          <td>Multiple per day</td>
+          <td class="future">Near zero</td>
+        </tr>
+        <tr>
+          <td><strong>Revenue / business status update</strong></td>
+          <td>Printout 2-3x per week</td>
+          <td class="future">Automated, weekly</td>
+        </tr>
+        <tr>
+          <td><strong>Team's ability to run without you</strong></td>
+          <td>Limited</td>
+          <td class="future">Solid</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-label">Where We Start</div>
+    <h2>Impact-Effort Matrix</h2>
+    
+    <p class="matrix-intro">This report focuses on <strong>Quick Wins</strong> first, then maps out the Major Projects that deliver the most long-term transformation.</p>
+    
+    <div class="matrix-grid">
+      <div class="matrix-quadrant quick-wins">
+        <h4>Quick Wins — Start Here</h4>
+        <ul>
+          <li>Lead response automation</li>
+          <li>Field mobile access</li>
+          <li>Cross-dept handoffs</li>
+        </ul>
+      </div>
+      <div class="matrix-quadrant major">
+        <h4>Major Projects — High Impact</h4>
+        <ul>
+          <li>Knowledge base + SOPs</li>
+          <li>Full PM layer across ops</li>
+          <li>Growth enablement</li>
+        </ul>
+      </div>
+      <div class="matrix-quadrant fill">
+        <h4>Fill-Ins</h4>
+        <ul>
+          <li>Basic Slack adoption</li>
+          <li>Estimate template updates</li>
+        </ul>
+      </div>
+      <div class="matrix-quadrant ignore">
+        <h4>Ignore</h4>
+        <ul>
+          <li>CRM replacement</li>
+          <li>Full software overhaul</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Recommended Solutions</div>
+    <h2>Quick Wins</h2>
+
+    <div class="solution-card">
+      <div class="solution-number">1</div>
+      <div class="solution-content">
+        <div class="solution-header">
+          <div class="solution-title">
+            <h4>Automated Lead Response</h4>
+            <div class="solution-subtitle">CRM Automation</div>
+          </div>
+          <div class="solution-badges">
+            <span class="badge badge-green">Low complexity</span>
+            <span class="badge badge-blue">2-3 hrs setup</span>
+          </div>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Pain</div>
+          <p>Leads come in by phone, cell, and office staff. Manual entry means delays, missed information, and slower follow-up. Industry data shows <strong>5-minute response vs. 30+ minutes means a 21x difference in conversion</strong>.</p>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">What we build</div>
+          <p>An automated intake system connected to your Go High Level CRM. When a lead comes in, the system captures it automatically, qualifies it, scores it, and triggers follow-up tasks without anyone having to remember to enter it.</p>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Why this fits</div>
+          <p>You already have GHL. This makes it work the way it should.</p>
+        </div>
+        
+        <div class="solution-roi">
+          <div class="roi-number">3-4 hrs</div>
+          <div class="roi-label">returned per week</div>
+          <div class="roi-ongoing"><strong>Ongoing:</strong> Managed by MindVault</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-number">2</div>
+      <div class="solution-content">
+        <div class="solution-header">
+          <div class="solution-title">
+            <h4>Field Information Access</h4>
+            <div class="solution-subtitle">Mobile Operations</div>
+          </div>
+          <div class="solution-badges">
+            <span class="badge badge-green">Low complexity</span>
+            <span class="badge badge-blue">2-3 hrs setup</span>
+          </div>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Pain</div>
+          <p>Your crew leads are on job sites all day. When they need job details, they call the office manager. When the office manager needs an update, they call you. The information exists in GHL but is not accessible in the field.</p>
+          <blockquote>"There would be a nice thing to have in the field. On an iPad, something like that, to be able to pull up reports on where things stand."</blockquote>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">What we build</div>
+          <p>A field-ready information layer connected to your existing GHL data. Crew leads can pull up job details, customer history, schedule, and status from their phones without calling anyone. We also set up a photo upload flow so job site photos go directly into the CRM.</p>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Why this fits</div>
+          <p>You already have GHL mobile. You just are not using it yet.</p>
+        </div>
+        
+        <div class="solution-roi">
+          <div class="roi-number">5-7 hrs</div>
+          <div class="roi-label">returned per week</div>
+          <div class="roi-ongoing"><strong>Ongoing:</strong> Managed by MindVault</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-card">
+      <div class="solution-number">3</div>
+      <div class="solution-content">
+        <div class="solution-header">
+          <div class="solution-title">
+            <h4>Cross-Department Communication Flow</h4>
+            <div class="solution-subtitle">Team Coordination</div>
+          </div>
+          <div class="solution-badges">
+            <span class="badge badge-yellow">Low-Medium complexity</span>
+            <span class="badge badge-blue">3-4 hrs setup</span>
+          </div>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Pain</div>
+          <p>Sales does not know what operations is working on. Operations does not know what is coming from sales. You are currently the communication router for the entire company.</p>
+          <blockquote>"What I would like is more integration through the whole company so that people know how many leads are getting warm from the sales team. So the operations team can understand what stage that is at."</blockquote>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">What we build</div>
+          <p>An automated handoff system. When a deal closes in GHL, operations gets notified. When a job is scheduled, sales gets an update. When a milestone happens, the right people know. We also set up an automated weekly summary so you have a clear picture of the business every Monday morning.</p>
+        </div>
+        
+        <div class="solution-section">
+          <div class="solution-section-title">Why this fits</div>
+          <p>You already have Slack and GHL. This makes them talk to each other.</p>
+        </div>
+        
+        <div class="solution-roi">
+          <div class="roi-number">4-5 hrs</div>
+          <div class="roi-label">returned per week</div>
+          <div class="roi-ongoing"><strong>Ongoing:</strong> Managed by MindVault</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Your Implementation Plan</div>
+    <h2>4-Week Quick Wins Plan</h2>
+    
+    <div class="timeline-grid">
+      <div class="timeline-block">
+        <h4>Weeks 1-2</h4>
+        <div class="timeline-item">
+          <div class="timeline-bullet">1</div>
+          <div class="timeline-text">Build automated lead intake and follow-up in Go High Level</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-bullet">2</div>
+          <div class="timeline-text">Configure and train crew leads on field mobile access in GHL</div>
+        </div>
+        <div class="timeline-tool">
+          <strong>Tool:</strong> Go High Level (already in use)
+        </div>
+      </div>
+      <div class="timeline-block">
+        <h4>Weeks 3-4</h4>
+        <div class="timeline-item">
+          <div class="timeline-bullet">3</div>
+          <div class="timeline-text">Set up cross-department handoff notifications (sales to ops)</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-bullet">4</div>
+          <div class="timeline-text">Build automated weekly business summary report</div>
+        </div>
+        <div class="timeline-tool">
+          <strong>Tool:</strong> Slack + Go High Level (already in use)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">What's Next</div>
+    <h2>What Comes After Quick Wins</h2>
+    <p>These are the Major Projects that deliver the biggest long-term transformation, once the quick wins are in place.</p>
+    
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-number">01</div>
+        <div class="phase-content">
+          <h4>Knowledge Base + SOP Documentation</h4>
+          <p>Build a shared library of your most common decision points so your team can handle situations without escalating to you every time. This is the foundation for delegation.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-number">02</div>
+        <div class="phase-content">
+          <h4>Full Operations Visibility Layer</h4>
+          <p>Unified job tracking across sales, operations, and ownership. Automated stage transitions. Real-time visibility so you stop being the person everyone calls to find out what is happening.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-number">03</div>
+        <div class="phase-content">
+          <h4>Growth Enablement</h4>
+          <p>With operations running on their own, your time is freed for the marketing and lead generation work you have been putting off. This is where the revenue growth happens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Financial Impact</div>
+    <h2>The Numbers</h2>
+    
+    <div class="financial-cards">
+      <div class="financial-card">
+        <div class="financial-value">12-16</div>
+        <div class="financial-label">Hours / Week Returned</div>
+      </div>
+      <div class="financial-card">
+        <div class="financial-value">$4,750-6,350</div>
+        <div class="financial-label">Net Monthly ROI</div>
+      </div>
+      <div class="financial-card">
+        <div class="financial-value">$0-50</div>
+        <div class="financial-label">Additional Tool Cost</div>
+      </div>
+    </div>
+    
+    <table class="impact-table">
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Hours / Week</th>
+          <th>Monthly Value (at $100/hr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lead Response Automation</td>
+          <td>3-4 hrs</td>
+          <td>$1,200-1,600</td>
+        </tr>
+        <tr>
+          <td>Field Information Access</td>
+          <td>5-7 hrs</td>
+          <td>$2,000-2,800</td>
+        </tr>
+        <tr>
+          <td>Cross-Department Communication</td>
+          <td>4-5 hrs</td>
+          <td>$1,600-2,000</td>
+        </tr>
+        <tr>
+          <td>Indirect: Fewer interruptions, faster decisions</td>
+          <td>~3 hrs</td>
+          <td>$1,200</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total Monthly Value</td>
+          <td>12-16 hrs</td>
+          <td>$5,000-6,600</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 16px; font-size: 14px; color: var(--gray-500);">* Assumes $100/hr value of owner's time. Net ROI after estimated MindVault management fee of $250-500/mo.</p>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-label">Your Next Steps</div>
+    <h2>Review This Report, Then Let's Talk.</h2>
+    
+    <div class="cta-grid">
+      <div class="cta-card">
+        <div class="cta-card-number">01</div>
+        <h4>Review This Report</h4>
+        <p>Take your time. Note any questions or clarifications.</p>
+      </div>
+      <div class="cta-card primary">
+        <div class="cta-card-number">02</div>
+        <h4>30-Minute Walkthrough</h4>
+        <p>Book a call with John to review the report together and discuss your questions.</p>
+      </div>
+      <div class="cta-card">
+        <div class="cta-card-number">03</div>
+        <h4>Book a Strategy Call</h4>
+        <p>If this looks like a fit, we'll create a specific implementation plan for Johnson Roofing.</p>
+      </div>
+    </div>
+    
+    <div class="cta-footer">
+      <a href="mailto:john@mindvaultstudio.net?subject=Johnson Roofing - 30-Min Walkthrough Request" class="cta-email">john@mindvaultstudio.net</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="container">
+  <p>Prepared by MindVault Studio | AI Assessment Report | April 23, 2026</p>
+  <p style="margin-top: 4px;">MVA-2026-0423-JR</p>
+</footer>
+
+</body>
+</html>

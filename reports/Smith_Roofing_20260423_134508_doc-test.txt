@@ -1,0 +1,18 @@
+CALL METADATA
+==================================================
+Business: Smith Roofing
+Customer: Mike Smith
+Industry: roofing
+Call ID: doc-test-123
+Date: 2026-04-23T13:45:08.255714
+Duration: 180s
+File: /root/projects/mindvault-assess/reports/Smith_Roofing_20260423_134508_doc-test.txt
+==================================================
+
+TRANSCRIPT
+==================================================
+
+AGENT: Hello, this is Annie from MindVault AI.
+
+USER: Hi, I run a roofing company in Dallas.
+

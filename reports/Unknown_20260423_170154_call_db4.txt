@@ -1,0 +1,160 @@
+CALL METADATA
+==================================================
+Business: Unknown
+Customer: Unknown
+Industry: general
+Call ID: call_db4c97a1b58aea628501b4eec6c
+Date: 2026-04-23T17:01:54.605743
+Duration: 1188s
+File: /root/projects/mindvault-assess/reports/Unknown_20260423_170154_call_db4.txt
+==================================================
+
+TRANSCRIPT
+==================================================
+
+AGENT: "Hi, this is Marissa from MindVault Studio. Thanks for booking the AI Assessment. This call will help us understand your business operations so we can build your personalized AI roadmap. Do you have about 20-30 minutes?"
+
+"Great. This will be recorded for accuracy. Does that work for you?"
+
+USER: Yes. 
+
+AGENT: Thanks. Before we start, you can pause and think about any answer—this is important, so take your time.
+
+Let's get specific—what type of home services do you offer? Roofing, HVAC, plumbing, electrical, or something else? And is it mainly residential, commercial, or both?
+
+USER: Roofing. Johnson Roofing. 
+
+AGENT: Got it, Johnson Roofing. How many people are on your team—field crew plus anyone in the office? And what's your role day-to-day?
+
+USER: Well, let's see. I've got two people in the office. In addition to me. I've got about ten roofers in the field. And then also approximate ten, maybe up to fifteen in the summer of sales people. Going out door to door. 
+
+AGENT: Thanks for sharing that. And just to clarify, what's your role day-to-day? Are you mostly in the office, out in the field, or a mix of both?
+
+USER: Yeah. For me, a mix of both. I'm sort of overseeing all the operations. I'm trying to get people to step up and be more management of their departments, but that's part of the problem. Still overseeing everything. 
+
+AGENT: Thanks for explaining your role. Now I want to understand how work actually flows through your business. When a customer first reaches out—by phone, email, or your website—how does that first contact get recorded? Is it in your head, written down, or entered into a system?
+
+USER: Yeah. So, basically, it can come through several ways. So if we do get a phone call into the office, someone actually speaks to the person, then, basically, they're gonna end up putting it right into the CRM. They're supposed to open the CRM start taking notes. You know, sometimes things get missed or, you they get off the call afterwards and go to put it in the CRM so this can be a little bit of a delay factor. They might forget to put certain parts of the information in. They might miss, uh, things like that. So and then there are other calls that I get directly on my cell phone in the field, and I trade it take that information as best I can and get that back to the office manager. So as you can see, it's very manual. 
+
+AGENT: Thanks for explaining that. Which CRM are you using to track those customer contacts?
+
+USER: So we are using Go High Level. 
+
+AGENT: Thanks for sharing that—Go High Level for your CRM. What other software or tools do you use day-to-day? For example, scheduling, invoicing, or project management—what are you actually using?
+
+USER: Well, that's bit hit or miss. So, essentially, me I try to stay organized by using Slack The problem is I haven't been able to get too many other people in the office on it. So project management is a big mess for us. Lot of it is me just you know, asking people, uh, what they're doing and and trying to keep track Project management's a big mess. 
+
+USER: The sales team does have SalesRabbit, which they use to do their so their they're reasonably well organized. However, the communication between the departments missed sometimes. So what I would like is more integration through the whole company so that people know how many leads are are you know, getting warm from the sales team. So the operations team can understand what stage that's at. 
+
+USER: Just a bit more communication flow in in that regard. 
+
+AGENT: Thanks for explaining that. Let’s talk about estimates—when you create a quote for a customer, how do you build it? Are you using software templates, handwriting it, or just calculating from memory and experience?
+
+USER: Yeah. So we've I would say, you know, like, Google Workspace has been our go to We have templates built for that. 
+
+USER: But, again, I think I'd like to get to the next level and have some of that automated so that you know, an automated system understands what of estimate we're making. It can hopefully fill out some of that pre fill it out so that essentially, whoever's doing the estimate can review it make some changes, and then have it sent out That's that's kinda what I'm looking for. 
+
+AGENT: Thanks for sharing that. Once a customer agrees to move forward, how does the job get scheduled and assigned to a crew?Who handles that, and how do they know what needs to be done?
+
+USER: Okay. So, basically, I I have a crew lead You know, he's he's pretty good. He does the job. He's been me for a long time. So he I pretty much rely on him to you know, put his schedule together for the upcoming week and and you know, he's he's pretty good at keeping everything in in in, uh, in a a schedule. However, again, I think what what we're missing is that the rest of the company doesn't necessarily know where things are. And what stage they're at. So some sort of way to be able to see all that throughout the company really save us a lot of time and be able to handle more jobs 
+
+AGENT: Thanks for explaining how scheduling works. How do you handle paperwork or documentation from job sites right now—like photos, signatures, or change orders? Where does all that information go?
+
+USER: Okay. So that comes you know, that basically gets you know, we'll take pictures at the site We'll put it into the we'll send it into the office, the manager will put that into the CRM. So the CRM is pretty good at you know, having places with all that information. It's just a again, it's a it's a matter of manually pulling any altogether and making sure that we're not missing 
+
+AGENT: Thanks for explaining that. When a job is finished and it's time to get paid, what does that process look like? Do you send invoices automatically, manually, or do you collect payment on-site?
+
+USER: Yeah. So we we essentially yeah. We just recently we were very manual. We had to, you know, like, paper invoice. We essentially took the piece of paper with us the job knowing where we can finish that day, and we you know, leave it and sign off. 
+
+USER: Another thing that I would like to to have automated you know, essentially, don't know. I I picture something where we've we've got it all made up. Maybe there's job site, the supervisor, bring it up on an iPad, show it to the homeowner, have them put their signature on it, and they're take they're there. Or have them connect connect with the office, something like that. Just so you know, we have been very manual. We're trying some different things. 
+
+USER: I would like to see something, uh, automated for that also. 
+
+AGENT: Thanks for sharing all that detail. Let me ask about information and access—if you wanted to see your total revenue for last month right now, how long would that take you? Do you have a dashboard or report, or would you need to piece it together?
+
+USER: Uh, that's a really good question. So, yeah, essentially, right now, very manual. I asked my office manager. Now the data is all there. Got doing quick books and the CRM. She can pull it out. But what I'm doing is having her two to three times a week whenever regular basis. I I simply say I wanna you know, get the reports up for revenue number of leads, cert things. And she basically prints prints about She has the report she knows she needs to get. Prints them out, hands them to me, and I go through This could definitely be automated. I'm I'm for sure. So 
+
+AGENT: Thanks for explaining how you get those reports. Can you or your team access job details, schedules, or customer info when you're not in the office, or is everything tied to someone or a computer at the office?
+
+USER: Yeah. This is this is I can answer. It's this is a real problem. Because, essentially, when there's no quick way to get it, especially in the field, You know, we would have to call into the office manager, take her time, say, can you get that information for me on job number, you know, five two three on Summit Road, If I had a question about it, So yeah, this would this would be a nice thing to have on the field. 
+
+USER: On an iPad, something like that, to be able to pull up reports. 
+
+USER: On where it stand, what we need to do with it. 
+
+AGENT: Thanks for sharing that. What information about your business do you wish you could see but can't currently? Or, what takes too long to figure out?
+
+USER: Uh, let me think about that. You repeat that question? 
+
+USER: So I could think? 
+
+AGENT: Take your time—this is important. The question is: What information about your business do you wish you could see but can't right now? Or, what takes too long to figure out?
+
+USER: You know what? I really like to I don't get enough time to focus on the most important. Thing. Which is essentially getting more leads, keeping them warm, following up on calls, This is where we can see real I think a lot of a lot of this is sort of falling through the cracks. We're relying on the the large team of salespeople just go out there and keep keep hitting on things where I think if we type up process one hour that we're getting leads. Are they warm? 
+
+USER: Know, 
+
+AGENT: Thanks for 
+
+USER: I'll be following up properly. On the schedule. Sorry. One second. And then and and then how that's communicated across the company. I think can really increase our revenue. 
+
+USER: Yeah. 
+
+AGENT: Thanks for sharing that. Now, I want to understand where your time goes and what’s frustrating. Walk me through today or yesterday—what were the first three things you personally handled? Where did your morning go?
+
+USER: Okay. Yeah. That's a great question. So if yesterday was it was Monday, and I basically, I I come in and I'm I'm usually, on Monday, this is what happens. I'm dealing with you know, a all the things that happened over the weekend. So I'm sure I heard about them on the weekend through phone calls or text. From my team. But sometimes I don't know the details. Because it wasn't. So I'm usually dealing with that for the first couple of hours, making sure that we've got that all sorted out. Then I then I go into, you know, sort of planning mode because it's the beginning of the week or making sure the rest of the week is all planned out. So I need to know you know, do we have the right supplies coming to be able to do the work that's coming up later in the week? 
+
+USER: Check on supplies, check on just everything just in time inventory. Do we warehouse? Have we figured out where our inventory stands on shingles, things like that. That's usually by Monday. Really, really, it's the busiest day of the week because between fight and fires that happened over the weekend, and planning what's coming up, it takes, like, first half of the day to take care of that. 
+
+AGENT: Thanks for walking me through your Monday. How many hours per week would you say you spend on administrative tasks—like scheduling, quoting, invoicing, or answering the same questions—that aren’t revenue-generating field work?
+
+USER: Yeah. I would say I would say a good At this point, a good half of my time. 
+
+AGENT: Thanks for sharing that. When you're not in the field, what's the most frustrating or repetitive thing that eats up your time each week? Something you do regularly that really annoys you?
+
+USER: Okay. The biggest pain that I have is answering problems that still in my company. So I'm still at the stage where everybody calls me you know, for the for whatever the issue is. And, you know, I have to sort it out. Which is partly my fault. Because I wanna know if there's a problem. But what I wanna work towards is that other people in the company have the knowledge base to be able to make a decision. So I'm ready for the delegation stage. I just wanna have confidence that everybody has that knowledge base. 
+
+AGENT: Thanks for explaining that. If you had to be away for a few days—maybe you got sick or had an emergency—could the business run without you, or do things pile up or stall?
+
+USER: That's a great question. Yes. I would say it leans towards I can't be out very long or things are gonna slow down. 
+
+USER: That's for sure. 
+
+USER: And part of that is because I haven't delegated enough to others. So I know that's partly my problem. 
+
+USER: Also, something that I wanna work towards. 
+
+AGENT: Thanks for sharing that. If you could reclaim 10-15 hours a week from admin work, what would you actually do with that time? Would you focus on more estimates, expanding to new areas, or just have your evenings back?
+
+USER: Yeah. I would focus on growth. 
+
+USER: So my goal my goal is to grow revenue So I wanna be able to spend more time on finding other ways to get leads Yeah. We haven't done a whole lot of marketing, so I would start spending time on marketing. 
+
+USER: Things like that, which I haven't been able to do because of 
+
+AGENT: Thanks for sharing your goals. Have you looked at automation or new software before? Did you try something, get sold something that didn’t fit, or has it always been “we’ll deal with it later”?
+
+USER: Yeah. It's basically been we'll deal with later. Keeps coming up. I I like I said, I've gone to, you know, ten years ago. You know, we've got, um, Google Workspace and we put that all in place. The Go high level has been pretty good about the CRM side of things. But now it's time to get something that's communicating across the whole company. 
+
+AGENT: Perfect, I’ve got a clear picture. Let me quickly summarize what I heard: You run Johnson Roofing with a mix of office staff, field crew, and salespeople. You’re using Go High Level for CRM, SalesRabbit for sales, and Google Workspace for estimates, but project management and communication between departments are manual and sometimes messy.Most admin tasks, scheduling, and reporting are handled manually, and you spend about half your time on these. You’d like more automation, better access to info in the field, and to delegate more so you can focus on growth and marketing.
+
+Does that sound right, or is there anything I missed or got wrong?
+
+USER: Yeah. No. I I think that's pretty accurate. 
+
+AGENT: Great, 
+
+USER: Um, think I heard you say it yeah, just one minute. Think I heard you say it, but I think my biggest thing is communication across the company so that people don't have to make phone calls to find out what's going on. If that makes sense. 
+
+AGENT: Thanks for clarifying that—communication across the company is a top priority for you. You'll get your AI Assessment report within 5 business days by email, with recommendations based on everything we discussed. There’ll also be a link to book a 30-minute walkthrough. Any questions before we wrap up?
+
+USER: Yeah. So someone will be calling me, uh, to go over the report? 
+
+USER: Is that correct? 
+
+AGENT: Yes, that's correct. Once you get your report, you'll have a link to book a 30-minute call to go over everything and answer any questions. Is there anything else I can help with today?
+
+USER: You've been very helpful. Thank you. 
+
+AGENT: Thanks, I appreciate your time and openness today. Have a great rest of your day!
+

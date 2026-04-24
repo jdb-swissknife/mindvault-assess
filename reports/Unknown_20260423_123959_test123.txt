@@ -1,0 +1,17 @@
+CALL METADATA
+==================================================
+Business: Unknown
+Customer: Unknown
+Industry: general
+Call ID: test123
+Date: 2026-04-23T12:39:59.594027
+File: /root/projects/mindvault-assess/reports/Unknown_20260423_123959_test123.txt
+==================================================
+
+TRANSCRIPT
+==================================================
+
+AGENT: Hello this is Annie
+
+USER: Hi there
+

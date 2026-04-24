@@ -1,0 +1,66 @@
+CALL METADATA
+==================================================
+Business: Unknown
+Customer: Unknown
+Industry: general
+Call ID: call_83befe1abbdbefb5ddb37d04cab
+Date: 2026-04-23T14:18:29.876716
+Duration: 142s
+File: /root/projects/mindvault-assess/reports/Unknown_20260423_141829_call_83b.txt
+==================================================
+
+TRANSCRIPT
+==================================================
+
+AGENT: "Hi, this is Marissa from 
+
+USER: This is my 
+
+AGENT: Thanks 
+
+USER: Oh, hi. 
+
+AGENT: Hi, this is Marissa from MindVault Studio. Thanks for booking the AI Assessment. This call will help us understand your business operations so we can build your personalized AI roadmap. Do you have about 20-30 minutes for our conversation?
+
+Great. This will be recorded for accuracy. Does that work for you?
+
+USER: Yes. 
+
+AGENT: Thanks. Before we dive in, if you need to pause and think about any answer, just let me know. To start—what type of home services do you offer? Roofing, HVAC, plumbing, electrical, or something else?
+
+AGENT: Got it, 
+
+USER: Solar. 
+
+AGENT: you offer solar services. Is your work mostly residential, commercial, or both? Do you focus on repairs, new installs, or something else?
+
+USER: New installs. 
+
+AGENT: Thanks for sharing. How many 
+
+USER: Residential. Residential. 
+
+USER: Yeah. 
+
+AGENT: Thanks for 
+
+AGENT: How many crew members do you have in the field?Any office staff, or are you handling scheduling and paperwork yourself?
+
+USER: Yeah. There's two office staff and about ten in the field. 
+
+USER: But yeah. Part of the problem is is that I am the only one who stays on top of everything. And I wanted to make it more automated. 
+
+AGENT: Thanks for explaining that. How many estimates or service calls are you handling each week? Are there certain times of 
+
+USER: Twenty. 
+
+AGENT: year when things get especially busy?
+
+USER: Yeah. About twenty, and I would say in the summer season, May to September. Is the busiest. So we would get more than that the summer. 
+
+AGENT: Thanks for sharing that. Walk me through a typical morning—what time do you start, and what are you usually doing in those first few hours?
+
+USER: Yeah. Let me me end it here so that we can up yeah. Let's get the report based on what I've said so far. Thank you. 
+
+AGENT: Thanks 
+
