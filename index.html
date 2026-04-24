@@ -352,12 +352,12 @@
             
             <div class="price-tag">
                 <div class="price-label">Introductory Assessment</div>
-                <div class="price-value">$997</div>
-                <div class="price-note">Applied as credit toward any implementation</div>
+                <div class="price-value" id="priceDisplay">$997</div>
+                <div class="price-note" id="priceNote">Applied as credit toward any implementation</div>
             </div>
             
             <br>
-        <a href="#payment" class="cta-button">Start Your Assessment — $997</a>
+        <a href="#payment" class="cta-button" id="heroCta">Start Your Assessment — $997</a>
         </div>
     </section>
 
@@ -476,9 +476,9 @@
             
             <div class="faq-list">
                 <div class="faq-item">
-                    <h4>Why does this cost $997 instead of being free?</h4>
-                    <p>Free assessments are sales pitches in disguise. We charge because this is a genuine financial analysis that takes 3-5 hours of research time. The fee ensures you're serious, and it ensures we deliver real value—not a lead magnet. Most clients find the quick wins alone save them $2,000+ in the first month.</p>
-                    <p class="deposit-callout" style="margin-top: 10px; background: rgba(201, 119, 86, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent);"><strong>Plus:</strong> Your $997 assessment fee is fully applicable to any automation implementation you hire MindVault to complete. Think of it as a deposit on your transformation.</p>
+                    <h4 id="faqPriceTitle">Why does this cost $997 instead of being free?</h4>
+                    <p id="faqPriceBody">Free assessments are sales pitches in disguise. We charge because this is a genuine financial analysis that takes 3-5 hours of research time. The fee ensures you're serious, and it ensures we deliver real value—not a lead magnet. Most clients find the quick wins alone save them $2,000+ in the first month.</p>
+                    <p class="deposit-callout" id="depositCallout" style="margin-top: 10px; background: rgba(201, 119, 86, 0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--accent);"><strong>Plus:</strong> Your $997 assessment fee is fully applicable to any automation implementation you hire MindVault to complete. Think of it as a deposit on your transformation.</p>
                 </div>
                 <div class="faq-item">
                     <h4>What if I don't need implementation help?</h4>
@@ -499,7 +499,7 @@
     <section class="cta-section" id="payment">
         <div class="container">
             <h2>Ready to Find Your Hidden Hours?</h2>
-            <p>Payment secures your spot. After checkout, you'll schedule your AI Interview at your convenience. Report delivered within 24-48 hours.</p>
+            <p id="paymentSubtext">Payment secures your spot. After checkout, you'll schedule your AI Interview at your convenience. Report delivered within 24-48 hours.</p>
             <a href="https://buy.stripe.com/4gM7sN0uq9W96CU4UnaAw00" class="cta-btn" id="paymentBtn">Pay $997 & Start Your Assessment</a>
             <p style="margin-top: 16px; font-size: 0.875rem; color: var(--text-secondary);">Questions? Call <a href="tel:+16124407465" style="color: var(--accent);">(612) 440-7465</a> or email <a href="mailto:apply@mindvaultstudio.net" style="color: var(--accent);">apply@mindvaultstudio.net</a></p>
         </div>
@@ -593,17 +593,169 @@
     <script src="ab-test.js"></script>
 
     <script>
-        // Show booking form if redirected from Stripe payment
-        if (new URLSearchParams(window.location.search).get('book') === 'true') {
+        const params = new URLSearchParams(window.location.search);
+        const STRIPE_URL = 'https://buy.stripe.com/4gM7sN0uq9W96CU4UnaAw00';
+
+        // ========================================
+        // 1. DISCOUNT CODE HANDLING
+        // ========================================
+        const VALID_CODES = {
+            'free-ai-assess': { discount: 100, label: 'Complimentary Assessment' },
+            'dream100': { discount: 100, label: 'Dream 100 — Complimentary' }
+        };
+
+        const code = (params.get('code') || '').toLowerCase();
+        const discount = VALID_CODES[code];
+
+        if (discount && discount.discount === 100) {
+            // FREE ASSESSMENT — skip Stripe, show booking form directly
+            // Update all price displays
+            document.getElementById('priceDisplay').textContent = 'FREE';
+            document.getElementById('priceNote').textContent = discount.label;
+            document.getElementById('heroCta').textContent = 'Start Your Free Assessment';
+            document.getElementById('heroCta').href = '#payment';
+
+            // Update payment section
+            document.getElementById('paymentSubtext').innerHTML =
+                'Your assessment is complimentary — no payment required. Just fill out the form below and we\'ll get you scheduled.';
+            document.getElementById('paymentBtn').textContent = 'Book Your Free AI Interview';
+            document.getElementById('paymentBtn').href = 'javascript:document.getElementById("freeBookingSection").scrollIntoView({behavior:"smooth"})';
+
+            // Update FAQ
+            document.getElementById('faqPriceTitle').textContent = 'Why are you offering this for free?';
+            document.getElementById('faqPriceBody').textContent =
+                'We\'re building case studies in the home services industry. In exchange for the free assessment, we just ask for a brief testimonial if you find the report valuable. No strings attached.';
+            document.getElementById('depositCallout').style.display = 'none';
+
+            // Insert a free booking form (no payment needed)
+            const freeSection = document.createElement('section');
+            freeSection.id = 'freeBookingSection';
+            freeSection.style.cssText = 'padding:40px 0;';
+            freeSection.innerHTML = `
+                <div class="container" style="max-width:600px;">
+                    <div style="text-align:center;margin-bottom:32px;">
+                        <div style="width:64px;height:64px;background:rgba(34,197,94,0.1);border:2px solid #22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;">&#10003;</div>
+                        <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;margin-bottom:8px;">Claim Your Free Assessment</h2>
+                        <p style="color:#a3a3a3;">Fill in your details and we'll get your AI Interview scheduled.</p>
+                    </div>
+                    <div style="background:#141416;border:1px solid #262626;border-radius:16px;padding:32px;">
+                        <h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:24px;">Book Your AI Interview</h3>
+                        <form action="https://formsubmit.co/apply@mindvaultstudio.net" method="POST">
+                            <input type="hidden" name="_subject" value="FREE AI Assessment Booking (Dream 100)">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="type" value="FREE AI Assessment Booking">
+                            <input type="hidden" name="amount" value="FREE (Code: ${code})">
+                            <input type="hidden" name="ref" value="${params.get('ref') || 'direct'}">
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">First Name <span style="color:var(--accent);">*</span></label>
+                                    <input type="text" name="first_name" required placeholder="John" style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                </div>
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Last Name <span style="color:var(--accent);">*</span></label>
+                                    <input type="text" name="last_name" required placeholder="Smith" style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                </div>
+                            </div>
+                            <div style="margin-bottom:20px;">
+                                <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Business Name <span style="color:var(--accent);">*</span></label>
+                                <input type="text" name="business_name" required placeholder="Smith Roofing Co." style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Email <span style="color:var(--accent);">*</span></label>
+                                    <input type="email" name="email" required placeholder="john@smithroofing.com" style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                </div>
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Phone <span style="color:var(--accent);">*</span></label>
+                                    <input type="tel" name="phone" required placeholder="(612) 555-1234" style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                </div>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Preferred Date <span style="color:var(--accent);">*</span></label>
+                                    <input type="date" name="preferred_date" required style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                </div>
+                                <div>
+                                    <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">Preferred Time <span style="color:var(--accent);">*</span></label>
+                                    <select name="preferred_time" required style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;">
+                                        <option value="">Select...</option>
+                                        <option value="7:00 AM">7:00 AM</option>
+                                        <option value="8:00 AM">8:00 AM</option>
+                                        <option value="9:00 AM">9:00 AM</option>
+                                        <option value="10:00 AM">10:00 AM</option>
+                                        <option value="11:00 AM">11:00 AM</option>
+                                        <option value="12:00 PM">12:00 PM</option>
+                                        <option value="1:00 PM">1:00 PM</option>
+                                        <option value="2:00 PM">2:00 PM</option>
+                                        <option value="3:00 PM">3:00 PM</option>
+                                        <option value="4:00 PM">4:00 PM</option>
+                                        <option value="5:00 PM">5:00 PM</option>
+                                        <option value="6:00 PM">6:00 PM</option>
+                                        <option value="7:00 PM">7:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="margin-bottom:24px;">
+                                <label style="display:block;font-size:0.875rem;font-weight:600;margin-bottom:6px;">What's your biggest operational headache?</label>
+                                <textarea name="pain_point" placeholder='e.g. "Scheduling is chaos during summer" or "Leads fall through the cracks"' style="width:100%;padding:12px 16px;background:#0a0a0b;border:1px solid #262626;border-radius:10px;color:#f5f5f5;font-family:'Inter',sans-serif;font-size:0.95rem;min-height:80px;resize:vertical;"></textarea>
+                            </div>
+                            <button type="submit" style="width:100%;padding:16px;background:var(--accent);color:white;border:none;border-radius:10px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;">Book Free Assessment</button>
+                        </form>
+                    </div>
+                    <div style="text-align:center;margin-top:24px;">
+                        <p style="color:#a3a3a3;font-size:0.875rem;">Prefer to talk? Call <a href="tel:+16124407465" style="color:var(--accent);">(612) 440-7465</a></p>
+                    </div>
+                </div>
+            `;
+            // Insert before footer
+            document.querySelector('footer').before(freeSection);
+
+            // Set min date on the new form
+            const newDateInput = freeSection.querySelector('input[type="date"]');
+            if (newDateInput) newDateInput.min = new Date().toISOString().split('T')[0];
+
+        } else {
+            // ========================================
+            // 2. A/B TEST — Deposit vs Price framing
+            // ========================================
+            // Only run if no discount code and A/B test script loaded
+            const variant = getCookie('mv_ab_test_variant') || (Math.random() < 0.5 ? 'a' : 'b');
+            document.cookie = `mv_ab_test_variant=${variant}; expires=${new Date(Date.now() + 30*864e5).toUTCString()}; path=/; SameSite=Strict`;
+
+            if (variant === 'a') {
+                // VARIANT A: $997 is a DEPOSIT (applies toward implementation)
+                // Default HTML already says this — just ensure deposit callout is visible
+                // Add ref param to Stripe link
+                const ref = params.get('ref');
+                if (ref) {
+                    document.getElementById('paymentBtn').href = STRIPE_URL + '?prefilled_promo_code=' + encodeURIComponent(ref);
+                }
+            } else {
+                // VARIANT B: $997 is THE PRICE (no deposit language)
+                document.getElementById('priceNote').textContent = 'One-time fee for full assessment + strategy call';
+                document.getElementById('depositCallout').style.display = 'none';
+                document.getElementById('paymentBtn').textContent = 'Get Your Assessment — $997';
+                document.getElementById('heroCta').textContent = 'Get Your Assessment — $997';
+                // Update FAQ to remove deposit angle
+                document.getElementById('faqPriceTitle').textContent = 'Is the $997 assessment worth it?';
+                document.getElementById('faqPriceBody').innerHTML =
+                    'Most clients find the quick wins alone save them <strong>$2,000+ in the first month</strong>. You get a custom report with specific tools, ROI projections, a 4-day quick win plan, and a 30-minute strategy call with our founder. It\'s a genuine financial analysis that takes 3-5 hours of research time — not a lead magnet.';
+            }
+        }
+
+        // ========================================
+        // 3. BOOKING FORM (Stripe redirect)
+        // ========================================
+        if (params.get('book') === 'true') {
             document.querySelectorAll('section:not(#bookingSection), nav').forEach(el => el.style.display = 'none');
             document.getElementById('bookingSection').style.display = 'block';
         }
 
         // Set minimum date to today
-        const dateInput = document.querySelector('input[type="date"]');
+        const dateInput = document.querySelector('#bookingSection input[type="date"]');
         if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.setAttribute('min', today);
+            dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
         }
     </script>
 
